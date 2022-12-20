@@ -8,7 +8,7 @@ import {
 
 import { AppDispatch } from "../../index";
 import { IUser } from "../../../models/IUser";
-import axios from "axios";
+import { UserService } from "./../../../api/UserService";
 
 export const AuthAC = {
   setUser: (user: IUser): SetUserAction => ({
@@ -31,7 +31,7 @@ export const AuthAC = {
     return async (dispatch: AppDispatch) => {
       try {
         dispatch(AuthAC.setIsLoading(true));
-        const response = await axios.get<IUser[]>("./users.json");
+        const response = await UserService.getUsers();
         const user = response.data.find((u) => {
           return u.username === username && u.password === password;
         });

@@ -1,4 +1,4 @@
-import { AllAC } from "./../routes/index";
+import { AllAC } from "../redux";
 import { bindActionCreators } from "redux";
 import { useThunkDispatch } from "./useThunkDispatch";
 

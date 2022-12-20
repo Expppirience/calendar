@@ -1,4 +1,3 @@
-import { AuthAC } from "../redux/reducers/auth/actionCreators";
 import { Event } from "../pages/Event";
 import { Login } from "../pages/Login";
 
@@ -19,7 +18,3 @@ export const publicRoutes = [
 export const privateRoutes = [
   { path: RouteNames.EVENT, exact: true, component: Event },
 ];
-
-export const AllAC = {
-  ...AuthAC,
-};
