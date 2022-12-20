@@ -1,3 +1,3 @@
-import {RootState} from "../../index";
+import { AppStateType } from "../../index";
 
-export const authSelector = (state: RootState) => state.auth
+export const authSelector = (state: AppStateType) => state.auth;
