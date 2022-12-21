@@ -62,7 +62,10 @@ export const EventForm: FC<IEventFormProps> = ({ guests, submit }) => {
       <Form.Item
         label="Choose date"
         name="date"
-        rules={[rules.required("Please input your username!")]}
+        rules={[
+          rules.required("Please input your username!"),
+          rules.isDateAfter("Invalid date"),
+        ]}
       >
         <DatePicker onChange={handleChangeDate} />
       </Form.Item>

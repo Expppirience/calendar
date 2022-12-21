@@ -32,17 +32,17 @@ export const AuthAC = {
       try {
         dispatch(AuthAC.setIsLoading(true));
         const response = await UserService.getUsers();
-        const user = response.data.find((u) => {
-          return u.username === username && u.password === password;
-        });
+        const user = response.data.find(
+          (u) => u.username === username && u.password === password
+        );
         if (!user) {
           dispatch(AuthAC.setError("Incorrect username or password"));
           return;
         }
         localStorage.setItem("auth", "true");
         localStorage.setItem("username", username);
-        dispatch(AuthAC.setIsAuth(true));
         dispatch(AuthAC.setUser(user));
+        dispatch(AuthAC.setIsAuth(true));
         dispatch(AuthAC.setIsLoading(false));
       } catch (e) {
         dispatch(AuthAC.setError("Error due to logging in"));
@@ -51,6 +51,7 @@ export const AuthAC = {
   },
   logout: () => async (dispatch: AppDispatch) => {
     localStorage.removeItem("auth");
+    localStorage.removeItem("username");
     dispatch(AuthAC.setUser({} as IUser));
     dispatch(AuthAC.setIsAuth(false));
   },

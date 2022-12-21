@@ -18,22 +18,23 @@ export const Navbar = () => {
     logout();
   };
 
-  const { isAuth } = useTypedSelector(authSelector);
+  const { isAuth, user } = useTypedSelector(authSelector);
+
   return (
     <div>
       <Layout.Header>
         <Row justify={"end"}>
           {isAuth ? (
             <>
-              <div style={{ color: "white" }}>Users' login</div>
-              <Menu theme={"dark"} selectable={false}>
+              <div style={{ color: "white" }}>{user.username}</div>
+              <Menu theme={"dark"}>
                 <Menu.Item key={1} onClick={logOutUser}>
                   Log out
                 </Menu.Item>
               </Menu>
             </>
           ) : (
-            <Menu theme={"dark"} selectable={false}>
+            <Menu theme={"dark"}>
               <Menu.Item key={1} onClick={navigateToLoginPage}>
                 Login
               </Menu.Item>

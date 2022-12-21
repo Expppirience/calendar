@@ -9,7 +9,6 @@ import { AppDispatch } from "../..";
 import { IEvent } from "./../../../models/IEvent";
 import { IUser } from "./../../../models/IUser";
 import { UserService } from "./../../../api/UserService";
-import { json } from "stream/consumers";
 
 export const EventAC = {
   setGuests: (guests: IUser[]): SetGuestsAT => {
